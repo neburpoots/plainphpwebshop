@@ -1,4 +1,5 @@
 # Docker template for PHP projects
+
 This repository provides a starting template for PHP application development.
 
 It contains:
