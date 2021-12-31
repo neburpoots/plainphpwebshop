@@ -29,6 +29,12 @@ spl_autoload_register(function($className) {
 		case stristr($className, 'Product'):
 			$file = __DIR__ . '/' . 'models' . '/' . $className . '.php';
 			break;
+		case stristr($className, 'Order_Line'):
+			$file = __DIR__ . '/' . 'models' . '/' . $className . '.php';
+			break;
+		case stristr($className, 'Order'):
+			$file = __DIR__ . '/' . 'models' . '/' . $className . '.php';
+			break;
 		default: 
 			$file = __DIR__ . '\\' . $className . '.php';
 	}

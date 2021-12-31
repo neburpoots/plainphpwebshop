@@ -44,11 +44,29 @@ class PatternRouter {
             header('Location: /');
         }
 
+        if($explodedUri[0] == "thanksforordering") {
+            $shoppingCartController = new ShoppingCartController();
+            $shoppingCartController->thanksForOrdering();
+            die();
+        }
+
+        if($explodedUri[0] == "order") {
+            if(isset($_SESSION["user"])) {
+                require __DIR__ . '/controllers/ordercontroller.php';
+                $userController = new OrderController();
+                $userController->myOrders();
+                die();
+            } else {
+                header('Location: /login');
+                die();
+            }
+        }
+
         //FOR THE USERS
         if($explodedUri[0] == "login") {
             if(isset($_SESSION["user"])) {
                 try {
-                    require __DIR__ . '/controllers/' . 'usercontroller' . '.php';
+                    require __DIR__ . '/controllers/usercontroller.php';
                     $userController = new UserController();
                     $userController->myaccount();
                     die();
@@ -57,7 +75,7 @@ class PatternRouter {
                 }
             } else {
                 try {
-                    require __DIR__ . '/controllers/' . 'usercontroller' . '.php';
+                    require __DIR__ . '/controllers/usercontroller.php';
                     $userController = new UserController();
                     $userController->login();
                     die();

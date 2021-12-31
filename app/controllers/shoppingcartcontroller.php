@@ -4,10 +4,12 @@ require __DIR__ . '/../autoload.php';
 class ShoppingCartController {
     
     private ProductService $productService;
+    private OrderService $orderService;
 
     public function __construct()
     {
         $this->productService = new ProductService();
+        $this->orderService = new OrderService();
     }
 
 	public function index() {
@@ -76,5 +78,37 @@ class ShoppingCartController {
         } catch(Exception $e) {
             http_response_code(404);
         }
+    }
+
+    public function orderItems() {
+        try {
+            $shoppingCart = unserialize($_SESSION["shoppingcart"]);
+
+            if(isset($_SESSION["user"])) {
+                $user = unserialize($_SESSION["user"]);
+                $order = new Order();
+                $order->setUser_id($user->getId());
+                
+                foreach($shoppingCart->getCartProducts() as $cartProduct) {
+                    $order_line = new Order_line();
+                    $order_line->setProduct($cartProduct->getProduct());
+                    $order_line->setQuantity($cartProduct->getAmount());
+                    $order->addOrder_Line($order_line);
+                }
+                $this->orderService->makeOrder($order);
+                unset($_SESSION["shoppingcart"]);
+                $shoppingCartNew = new ShoppingCart();
+                $_SESSION["shoppingcart"] = serialize($shoppingCartNew);
+                header('Location: /thanksforordering');
+            } else {
+                header('Location: /login');
+            }
+        } catch(Exception $e) {
+            http_response_code(404);
+        }
+    }
+
+    public function thanksForOrdering() {
+        require __DIR__ . '/../views/thanksforordering.php';
     }
 }

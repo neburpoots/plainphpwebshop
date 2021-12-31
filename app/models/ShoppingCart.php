@@ -21,17 +21,17 @@ class ShoppingCart {
         return $total;
     }
 
-    public function addToCart(CartProduct $cartProduct) {
-        if(in_array($cartProduct, $this->cartProducts)) {
-            $key = array_search($cartProduct, $this->cartProducts);
-            $this->cartProducts[$key]->addOne();
-        } else {
-            $this->cartProducts[] = $cartProduct;
+    public function addToCart(CartProduct $newCartProduct) {
+        foreach($this->cartProducts as $cartProduct) {
+            if($cartProduct->getProduct()->getId() == $newCartProduct->getProduct()->getId()) {
+                $cartProduct->addOne();
+                return;
+            }
         }
+        $this->cartProducts[] = $newCartProduct;
     }
 
     public function increaseAmount(int $id) {
-
         foreach($this->cartProducts as $cartProduct) {
             if($cartProduct->getProduct()->getId() == $id) {
                 $cartProduct->addOne();
@@ -40,7 +40,6 @@ class ShoppingCart {
     }
 
     public function decreaseAmount(int $id) {
-
         foreach($this->cartProducts as $cartProduct) {
             if($cartProduct->getProduct()->getId() == $id) {
                 if($cartProduct->getAmount() <= 1) {

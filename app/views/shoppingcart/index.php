@@ -58,7 +58,7 @@
             <div class="row">
                 <h1 class="mt-5 mb-5">Total: &euro; <? echo $shoppingCart->getTotal(); ?></h1>
                 <?php if(count($shoppingCart->getCartProducts()) > 0) : ?>
-                    <a class="btn btn-primary">Reken af</a>
+                    <a href="/shoppingcart/orderItems" class="btn btn-primary">Reken af</a>
                 <?php else : ?>
                     <p class="btn btn-secondary">Reken af</p>
                 <?php endif; ?>

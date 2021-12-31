@@ -30,7 +30,8 @@ class UserController {
 		require __DIR__ . '/../views/users/login.php';
 	}
 
-	public function myaccount(){
+	public function myaccount()
+	{
 		require __DIR__ . '/../views/users/myaccount.php';
 	}
 
