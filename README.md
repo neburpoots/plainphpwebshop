@@ -1,6 +1,6 @@
-# Docker template for PHP projects
+# Simple webshop for php
 
-This repository provides a starting template for PHP application development.
+Makes use of spline for the animation on the homepage
 
 It contains:
 * NGINX webserver
