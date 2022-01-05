@@ -1,0 +1,220 @@
+.item1 {
+    background:linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(https://res.cloudinary.com/dg5wrkfe7/image/upload/v1639140004/Screenshot_2021-12-10_133950_oiwt5v.png);
+    height: 33.3333vh;
+    background-size:cover;
+    background-position: center; /* Center the image */
+}
+
+.item1:hover {
+    background:linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(https://res.cloudinary.com/dg5wrkfe7/image/upload/v1639140004/Screenshot_2021-12-10_133950_oiwt5v.png);
+    background-size:cover;
+    background-position: center; /* Center the image */
+}
+
+.item2 {
+    background:linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(https://res.cloudinary.com/dg5wrkfe7/image/upload/v1641076294/geforce-1650_evga-3qtr-front_left-100794190-orig_thk2fs.jpg);
+    height: 33.3333vh;
+    background-size:cover;
+    background-position: center; /* Center the image */
+}
+
+.item2:hover {
+    background:linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(https://res.cloudinary.com/dg5wrkfe7/image/upload/v1641076294/geforce-1650_evga-3qtr-front_left-100794190-orig_thk2fs.jpg);
+    background-size:cover;
+    background-position: center; /* Center the image */
+}
+
+
+.item3 {
+    background:linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(https://res.cloudinary.com/dg5wrkfe7/image/upload/v1641077313/TUjcfTWZ4ENJmJp2R8bhVH_wsepef.jpg);
+    height: 33.3333vh;
+    background-size:cover;
+    background-position: center; /* Center the image */
+}
+
+.item3:hover {
+    background:linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(https://res.cloudinary.com/dg5wrkfe7/image/upload/v1641077313/TUjcfTWZ4ENJmJp2R8bhVH_wsepef.jpg);
+    background-size:cover;
+    background-position: center; /* Center the image */
+}
+
+
+
+.customitem .navp {
+    color: white;
+    font-size: 40px;
+    text-decoration: none;
+    text-align: center;
+    -webkit-transform: translateY(350%);
+    transform: translateY(350%);
+    line-height: initial;
+}
+
+#menu a {
+    text-decoration: none;
+}
+
+.header {
+    overflow: hidden;
+    position: fixed;
+    top: 0px;
+    z-index: 9999;
+}
+
+.mainnavigation {
+    position: fixed;
+}
+
+
+#menuright {
+    right: 0px;
+    z-index: 9;
+    position: fixed;
+    margin: 0; padding: 0;
+    width: 120px;
+    height: 33px;
+    background-color: #fff;
+    /*border-bottom-left-radius: 100%; */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.26);
+}
+
+#menuright li {
+    display: block;
+    float: right;
+    width: 50%;
+}
+
+#menuright a {
+    text-align: center;
+}
+
+.fa-lg {
+    font-size: 1.25em;
+    line-height: .05em;
+    vertical-align: -0.075em;
+    /* left: 20%; */
+
+}
+
+/* STOLEN FROM https://codepen.io/victorfreire/pen/QywRNM */
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,700);
+
+@keyframes checked-anim {
+    50% {
+        width: 3000px;
+        height: 3000px;
+    }
+    100% {
+        width: 100%;
+        height: 100%;
+        border-radius: 0;
+    }
+}
+@keyframes not-checked-anim {
+    0% {
+        width: 3000px;
+        height: 3000px;
+    }
+}
+#menu li, a {
+    color: #0d6efd;
+    font: 14pt "Roboto", sans-serif;
+    font-weight: 700;
+    line-height: 1.8;
+    text-decoration: none;
+    text-transform: none;
+    list-style: none;
+    outline: 0;
+    display: none;
+}
+
+#menu a:focus {
+    display: block;
+    color: #333;
+    background-color: #eee;
+    transition: all .5s;
+}
+#menu h1 {
+    line-height: 0;
+    font-size: 4vw;
+    font-weight: 700;
+}
+#menu h3 {
+    float: right;
+    line-height: .3;
+    font-size: 2.5vw;
+    font-weight: lighter;
+}
+#menu h4 {
+    float: left;
+    margin-left: -2%;
+    font-size: 1.5vw;
+    font-weight: lighter;
+}
+
+header #trigger, #burger, #burger:before, #burger:after {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: #0d6efd;
+    width: 30px;
+    height: 5px;
+    transition: .2s ease;
+    cursor: pointer;
+    z-index: 9999;
+}
+header #trigger {
+    height: 25px;
+    background: none;
+}
+header #burger:before {
+    content: " ";
+    top: 10px;
+    left: 0;
+}
+header #burger:after {
+    content: " ";
+    top: 20px;
+    left: 0;
+}
+#menu-toggle:checked + #trigger + #burger {
+    top: 35px;
+    transform: rotate(180deg);
+    transition: transform .2s ease;
+}
+
+#menu-toggle:checked + #trigger + #burger:before {
+    width: 20px;
+    top: -2px;
+    left: 18px;
+    transform: rotate(45deg) translateX(-5px);
+    transition: transform .2s ease;
+}
+#menu-toggle:checked + #trigger + #burger:after {
+    width: 20px;
+    top: 2px;
+    left: 18px;
+    transform: rotate(-45deg) translateX(-5px);
+    transition: transform .2s ease;
+}
+#menu {
+    z-index: 9;
+    position: fixed;
+    margin: 0; padding: 0;
+    width: 60px;
+    height: 56px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.26);
+    animation: not-checked-anim .2s both;
+    transition: .2s;
+}
+#menu-toggle:checked + #trigger + #burger + #menu {
+    animation: checked-anim 1s ease both;
+    z-index: 9;
+}
+#menu-toggle:checked + #trigger ~ #menu > li, a {
+    display: block;
+}
+[type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+    display: none;
+}
